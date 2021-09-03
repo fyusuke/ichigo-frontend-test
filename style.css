@@ -14,6 +14,8 @@
   color: white;
   font-weight: bold;
   font-size: 18px;
+  max-width: 1000px;
+  margin: auto;
 }
 
 /* boxes in top container */
