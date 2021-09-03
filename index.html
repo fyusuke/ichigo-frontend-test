@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>frontend test</title>
+<link rel='stylesheet' href='style.css' />
+</head>
+
+<body>
+  <div id="app" class="main">
+
+    <div class="top-container">
+      <div class="box text-vh-center box-1" @click="changeBgColor">1</div>
+      <div class="box-234">
+        <div class="box text-vh-center box-2" @click="changeBgColor">2</div>
+        <div class="box-34">
+          <div class="box text-vh-center box-3" @click="changeBgColor">3</div>
+          <div class="box text-vh-center box-4" @click="changeBgColor">4</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-container">
+      <div class="box-56">
+        <div class="box text-vh-center box-5" @click="changeBgColor">5</div>
+        <div class="box text-vh-center box-6" @click="changeBgColor">6</div>
+      </div>
+      <div class="box text-vh-center box-7" @click="changeBgColor">7</div>
+      <div class="box-89">
+        <div class="box text-vh-center box-8" @click="changeBgColor">8</div>
+        <div class="box text-vh-center box-9" @click="changeBgColor">9</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      methods: {
+        // change background color of each box
+        changeBgColor(){
+          elems = Array.from(document.getElementsByClassName('box'));
+          elems.forEach(el => {
+            el.style.backgroundColor = this.getRandomColor();
+          });
+        },
+        getRandomColor() {
+          var letters = '0123456789ABCDEF';
+          var color = '#';
+          for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+          }
+          return color;
+        }
+      }
+    })
+  </script>
+</body>
+</html>
